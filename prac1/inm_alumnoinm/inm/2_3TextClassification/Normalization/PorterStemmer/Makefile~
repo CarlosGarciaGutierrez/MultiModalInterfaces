@@ -1,0 +1,14 @@
+
+cc=gcc
+cf=-c
+lk=gcc
+lf=
+
+all	: PorterStemmer
+	@echo PorterStemmer OK
+	
+PorterStemmer	: PorterStemmer.o
+		$(lk) $(lf) -o PorterStemmer PorterStemmer.o
+		
+PorterStemmer.o	: PorterStemmer.c
+		$(cc) $(cf) PorterStemmer.c

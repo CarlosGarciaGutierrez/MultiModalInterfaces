@@ -1,0 +1,25 @@
+
+cc=g++
+cf=-c
+lk=g++
+lf=
+
+all	: CACalculator
+	@echo CACalculator OK
+
+delete	:
+	rm -f CACalculator CACalculator.o Vocabulary.o
+	@echo delete OK
+	
+build	: delete all
+	@echo build OK
+
+CACalculator	: CACalculator.o Vocabulary.o
+		$(lk) $(lf) -o CACalculator CACalculator.o Vocabulary.o
+
+CACalculator.o	: CACalculator.cpp Vocabulary.h
+		$(cc) $(cf) CACalculator.cpp
+		
+Vocabulary.o	: Vocabulary.cpp Vocabulary.h
+		$(cc) $(cf) Vocabulary.cpp
+
