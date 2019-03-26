@@ -16,7 +16,9 @@
 // Operator's text
 const char *OpeText[4]={"+","-","*","/"};
 
-int Total;
+int Total = 0;
+
+int NumAttExtra = 2;
 
 void GetSVMRepNumbers(char* Line,Vocabulary* VB,char * SVMRep,int* N1,int* N2)
 {
@@ -61,7 +63,7 @@ void GetSVMRepNumbers(char* Line,Vocabulary* VB,char * SVMRep,int* N1,int* N2)
  // Generate SVMRep
  SVMRep[0]='\0';
  for(setint::iterator i=Atts.begin();i!=Atts.end();i++)
-   sprintf(SVMRep+strlen(SVMRep)," %d:1",*i);
+   sprintf(SVMRep+strlen(SVMRep)," %d:1",(*i)+NumAttExtra);
  printf("N1=%d N2=%d\n",*N1,*N2);
  printf("%s\n",SVMRep); // Debug
 }
