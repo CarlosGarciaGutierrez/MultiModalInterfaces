@@ -16,6 +16,8 @@
 // Operator's text
 const char *OpeText[4]={"+","-","*","/"};
 
+int Total;
+
 void GetSVMRepNumbers(char* Line,Vocabulary* VB,char * SVMRep,int* N1,int* N2)
 {
  static char Word[MAX_LINE];
@@ -50,6 +52,12 @@ void GetSVMRepNumbers(char* Line,Vocabulary* VB,char * SVMRep,int* N1,int* N2)
   sscanf(Line,"%s",Word);              // read the next word
  }
  
+ if(PN==N2){ // Sólo hay un operando
+  (*N2)=(*N1);
+  (*N1) = Total;
+  PN = NULL;
+ }
+
  // Generate SVMRep
  SVMRep[0]='\0';
  for(setint::iterator i=Atts.begin();i!=Atts.end();i++)
@@ -132,6 +140,8 @@ void MakeOperation(int Ope,int N1,int N2)
   case DIV: Res=N1/N2; break;
  }
  printf("%d%s%d=%d\n",N1,OpeText[Ope-1],N2,Res);
+
+ Total = Res;
 }
 
 void CA(Vocabulary * VB,char * SVMTrainFile)
