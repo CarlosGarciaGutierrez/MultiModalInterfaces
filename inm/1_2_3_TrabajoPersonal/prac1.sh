@@ -129,7 +129,7 @@ echo === Classifying data for binary 1-Gram labels of second category ==
 ${BIN_DIR}/svm_classify news.3cat.qsim.q1car.porter.1Gram.b.2c.train news.3cat.qsim.q1car.porter.1Gram.b.2c.model news.3cat.qsim.q1car.porter.1Gram.b.2c.eval
 
 echo
-echo === Classifying data for binary 2-Gram labels of first category ==
+echo === Classifying data for binary 2-Gram labels of second category ==
 ${BIN_DIR}/svm_classify news.3cat.qsim.q1car.porter.2Gram.b.2c.train news.3cat.qsim.q1car.porter.2Gram.b.2c.model news.3cat.qsim.q1car.porter.2Gram.b.2c.eval
 
 echo
