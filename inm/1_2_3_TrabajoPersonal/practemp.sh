@@ -18,15 +18,18 @@ echo === Extracting top three categories ===
 
 echo
 echo === Applying NP ===
-python ${NORM_DIR}/quitaSim.py < news.3cat.txt > news.3cat.qsim.txt
-python ${NORM_DIR}/quita1car.py < news.3cat.qsim.txt > news.3cat.qsim.q1car.txt
+python ${NORM_DIR}/replaceEmails.py < news.3cat.txt > news.3cat.mail.txt
+python ${NORM_DIR}/removeSymbols.py < news.3cat.mail.txt > news.3cat.mail.sym.txt
+python ${NORM_DIR}/replaceNumbers.py < news.3cat.mail.sym.txt > news.3cat.mail.sym.num.txt
+python ${NORM_DIR}/removeOneChars.py < news.3cat.mail.sym.num.txt > news.3cat.mail.sym.num.1char.txt
+python ${NORM_DIR}/toLowerCase.py < news.3cat.mail.sym.num.1char.txt > news.3cat.np.txt
 
 
 
 echo
 echo === Generating 1-Grams ===
-${NGRAMS_DIR}/NGrams news.3cat.qsim.q1car.txt 1 news.3cat.qsim.q1car.1Gram
+${NGRAMS_DIR}/NGrams news.3cat.np.txt 1 news.3cat.np.1Gram
 
 echo
 echo === Generating 2-Grams ===
-${NGRAMS_DIR}/NGrams news.3cat.qsim.q1car.txt 2 news.3cat.qsim.q1car.2Gram
+${NGRAMS_DIR}/NGrams news.3cat.np.txt 2 news.3cat.np.2Gram
