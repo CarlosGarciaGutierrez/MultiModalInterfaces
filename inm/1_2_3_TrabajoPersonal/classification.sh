@@ -85,6 +85,14 @@ ${SVM_DIR}/SVMRep ${NORM_DIR}/news.3cat.np.txt 2 ${NGRAMS_DIR}/news.3cat.np.2Gra
 echo
 ${SVM_DIR}/SVMRep ${NORM_DIR}/news.3cat.porter.np.txt 2 ${NGRAMS_DIR}/news.3cat.porter.np.2Gram ${SVM_DIR}/news.3cat.porter.np.2Gram.b.svm bin
 
+echo
+echo === Generating 2-Gram proportional SVM representation ===
+${SVM_DIR}/SVMRep ${NORM_DIR}/news.3cat.np.txt 2 ${NGRAMS_DIR}/news.3cat.np.2Gram ${SVM_DIR}/news.3cat.np.2Gram.p.svm prop
+
+echo
+echo === Generating 2-Gram count SVM representation ===
+${SVM_DIR}/SVMRep ${NORM_DIR}/news.3cat.np.txt 2 ${NGRAMS_DIR}/news.3cat.np.2Gram ${SVM_DIR}/news.3cat.np.2Gram.c.svm count
+
 
 
 echo
@@ -100,6 +108,10 @@ echo === Generating binary 2-Gram training labels for first category ===
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.2Gram.b.svm alt.atheism ${ML_DIR}/news.3cat.porter.2Gram.b.1c.train
 echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.b.svm alt.atheism ${ML_DIR}/news.3cat.np.2Gram.b.1c.train
+echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.p.svm alt.atheism ${ML_DIR}/news.3cat.np.2Gram.p.1c.train
+echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.c.svm alt.atheism ${ML_DIR}/news.3cat.np.2Gram.c.1c.train
 echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.np.2Gram.b.svm alt.atheism ${ML_DIR}/news.3cat.porter.np.2Gram.b.1c.train
 
@@ -117,6 +129,10 @@ ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.2Gram.b.svm comp
 echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.b.svm comp.graphics ${ML_DIR}/news.3cat.np.2Gram.b.2c.train
 echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.p.svm comp.graphics ${ML_DIR}/news.3cat.np.2Gram.p.2c.train
+echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.c.svm comp.graphics ${ML_DIR}/news.3cat.np.2Gram.c.2c.train
+echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.np.2Gram.b.svm comp.graphics ${ML_DIR}/news.3cat.porter.np.2Gram.b.2c.train
 
 echo
@@ -132,6 +148,10 @@ echo === Generating binary 2-Gram training labels for third category ===
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.2Gram.b.svm comp.os.ms-windows.misc ${ML_DIR}/news.3cat.porter.2Gram.b.3c.train
 echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.b.svm comp.os.ms-windows.misc ${ML_DIR}/news.3cat.np.2Gram.b.3c.train
+echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.p.svm comp.os.ms-windows.misc ${ML_DIR}/news.3cat.np.2Gram.p.3c.train
+echo
+${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.np.2Gram.c.svm comp.os.ms-windows.misc ${ML_DIR}/news.3cat.np.2Gram.c.3c.train
 echo
 ${ML_DIR}/OneLabelSVM news.3cat.txt ${SVM_DIR}/news.3cat.porter.np.2Gram.b.svm comp.os.ms-windows.misc ${ML_DIR}/news.3cat.porter.np.2Gram.b.3c.train
 
@@ -152,6 +172,10 @@ ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.2Gram.b.1c.train ${BIN_DIR}/news
 echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.b.1c.train ${BIN_DIR}/news.3cat.np.2Gram.b.1c.model
 echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.p.1c.train ${BIN_DIR}/news.3cat.np.2Gram.p.1c.model
+echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.c.1c.train ${BIN_DIR}/news.3cat.np.2Gram.c.1c.model
+echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.np.2Gram.b.1c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.1c.model
 
 echo
@@ -168,6 +192,10 @@ ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.2Gram.b.2c.train ${BIN_DIR}/news
 echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.b.2c.train ${BIN_DIR}/news.3cat.np.2Gram.b.2c.model
 echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.p.2c.train ${BIN_DIR}/news.3cat.np.2Gram.p.2c.model
+echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.c.2c.train ${BIN_DIR}/news.3cat.np.2Gram.c.2c.model
+echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.np.2Gram.b.2c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.2c.model
 
 echo
@@ -183,6 +211,10 @@ echo === Creating linear model for binary 2-Gram labels of third category ==
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.2Gram.b.3c.train ${BIN_DIR}/news.3cat.porter.2Gram.b.3c.model
 echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.b.3c.train ${BIN_DIR}/news.3cat.np.2Gram.b.3c.model
+echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.p.3c.train ${BIN_DIR}/news.3cat.np.2Gram.p.3c.model
+echo
+${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.np.2Gram.c.3c.train ${BIN_DIR}/news.3cat.np.2Gram.c.3c.model
 echo
 ${BIN_DIR}/svm_learn ${ML_DIR}/news.3cat.porter.np.2Gram.b.3c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.3c.model
 
@@ -202,6 +234,10 @@ ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.2Gram.b.1c.train ${BIN_DIR}/n
 echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.b.1c.train ${BIN_DIR}/news.3cat.np.2Gram.b.1c.model ${BIN_DIR}/news.3cat.np.2Gram.b.1c.eval
 echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.p.1c.train ${BIN_DIR}/news.3cat.np.2Gram.b.1c.model ${BIN_DIR}/news.3cat.np.2Gram.p.1c.eval
+echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.c.1c.train ${BIN_DIR}/news.3cat.np.2Gram.b.1c.model ${BIN_DIR}/news.3cat.np.2Gram.c.1c.eval
+echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.np.2Gram.b.1c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.1c.model ${BIN_DIR}/news.3cat.porter.np.2Gram.b.1c.eval
 
 echo
@@ -218,6 +254,10 @@ ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.2Gram.b.2c.train ${BIN_DIR}/n
 echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.b.2c.train ${BIN_DIR}/news.3cat.np.2Gram.b.2c.model ${BIN_DIR}/news.3cat.np.2Gram.b.2c.eval
 echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.p.2c.train ${BIN_DIR}/news.3cat.np.2Gram.b.2c.model ${BIN_DIR}/news.3cat.np.2Gram.p.2c.eval
+echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.c.2c.train ${BIN_DIR}/news.3cat.np.2Gram.b.2c.model ${BIN_DIR}/news.3cat.np.2Gram.c.2c.eval
+echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.np.2Gram.b.2c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.2c.model ${BIN_DIR}/news.3cat.porter.np.2Gram.b.2c.eval
 
 echo
@@ -233,5 +273,9 @@ echo === Classifying data for binary 2-Gram labels of third category ==
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.2Gram.b.3c.train ${BIN_DIR}/news.3cat.porter.2Gram.b.3c.model ${BIN_DIR}/news.3cat.porter.2Gram.b.3c.eval
 echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.b.3c.train ${BIN_DIR}/news.3cat.np.2Gram.b.3c.model ${BIN_DIR}/news.3cat.np.2Gram.b.3c.eval
+echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.p.3c.train ${BIN_DIR}/news.3cat.np.2Gram.b.3c.model ${BIN_DIR}/news.3cat.np.2Gram.p.3c.eval
+echo
+${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.np.2Gram.c.3c.train ${BIN_DIR}/news.3cat.np.2Gram.b.3c.model ${BIN_DIR}/news.3cat.np.2Gram.c.3c.eval
 echo
 ${BIN_DIR}/svm_classify ${ML_DIR}/news.3cat.porter.np.2Gram.b.3c.train ${BIN_DIR}/news.3cat.porter.np.2Gram.b.3c.model ${BIN_DIR}/news.3cat.porter.np.2Gram.b.3c.eval
